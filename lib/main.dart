@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/start_screen.dart';
 
 void main() {
   runApp(
@@ -9,46 +10,13 @@ void main() {
             gradient: LinearGradient(
               colors: [
                 Color.fromARGB(255, 79, 29, 130),
-                Color.fromARGB(255, 117, 54, 211),
+                Color.fromARGB(255, 149, 103, 218),
               ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
           ),
-          child: Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset(
-                  "assets/images/quiz-logo.png",
-                  width: 250,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                const Text(
-                  "Learn Flutter the fun way!!",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 17,
-                  ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                OutlinedButton(
-                  onPressed: () {},
-                  child: const Text(
-                    "Start Quiz",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 17,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
+          child: const StartScreen(),
         ),
       ),
     ),
