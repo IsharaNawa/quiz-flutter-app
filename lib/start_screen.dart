@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   // accept a function so that it can be called when the button is pressed
@@ -20,10 +21,10 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 50,
           ),
-          const Text(
+          Text(
             "Learn Flutter the fun way!",
-            style: TextStyle(
-              color: Colors.white,
+            style: GoogleFonts.lato(
+              color: Color.fromARGB(255, 216, 196, 229),
               fontSize: 20,
             ),
           ),
