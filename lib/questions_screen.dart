@@ -17,27 +17,32 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(
-            currentQuestion.question,
-            style: const TextStyle(
-              color: Colors.white,
+    return Container(
+      margin: EdgeInsets.all(20),
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.question,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 30,
-          ),
-          ...currentQuestion.answers.map((answer) {
-            return AnswerButton(
-              buttonText: answer,
-              onTap: () {},
-            );
-          })
-        ],
+            const SizedBox(
+              height: 30,
+            ),
+            ...currentQuestion.answers.map((answer) {
+              return AnswerButton(
+                buttonText: answer,
+                onTap: () {},
+              );
+            })
+          ],
+        ),
       ),
     );
   }
