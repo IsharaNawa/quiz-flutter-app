@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  // accept a function so that it can be called when the button is pressed
+  const StartScreen(this.swtichScreen, {super.key});
+
+  final void Function() swtichScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +14,7 @@ class StartScreen extends StatelessWidget {
         children: [
           Image.asset(
             "assets/images/quiz-logo.png",
-            color: Color.fromARGB(150, 255, 255, 255),
+            color: const Color.fromARGB(150, 255, 255, 255),
             width: 250,
           ),
           const SizedBox(
@@ -28,7 +31,7 @@ class StartScreen extends StatelessWidget {
             height: 30,
           ),
           OutlinedButton.icon(
-            onPressed: () {},
+            onPressed: swtichScreen,
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
             ),
