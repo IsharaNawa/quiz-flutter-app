@@ -13,7 +13,23 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  final QuizQuestion currentQuestion = questions[0];
+  int questionNumber = 0;
+
+  @override
+  void initState() {
+    questionNumber = 0;
+    super.initState();
+  }
+
+  void moveToNextQuestion() {
+    setState(() {
+      if (questionNumber < questions.length - 1) {
+        questionNumber += 1;
+      } else {
+        
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +42,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              currentQuestion.question,
+              questions[questionNumber].question,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 color: Colors.white,
@@ -35,10 +51,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             const SizedBox(
               height: 30,
             ),
-            ...currentQuestion.getShuffledAnswers().map((answer) {
+            ...questions[questionNumber].getShuffledAnswers().map((answer) {
               return AnswerButton(
                 buttonText: answer,
-                onTap: () {},
+                onTap: moveToNextQuestion,
               );
             })
           ],
