@@ -14,16 +14,25 @@ class QuestionsSummary extends StatelessWidget {
         child: Column(
           children: questionData.map((data) {
             return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  ((data["question_index"] as int) + 1).toString(),
-                  style: TextStyle(
+                Container(
+                  height: 30,
+                  width: 30,
+                  margin: EdgeInsets.only(right: 15),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
                       color: data["user_answer"] == data["correct_answer"]
-                          ? Colors.green
-                          : Colors.red),
+                          ? Color.fromARGB(255, 46, 220, 220)
+                          : Color.fromARGB(255, 214, 66, 179),
+                      borderRadius: BorderRadius.circular(100)),
+                  child: Text(
+                    ((data["question_index"] as int) + 1).toString(),
+                  ),
                 ),
                 Expanded(
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         data["question"] as String,
@@ -38,7 +47,7 @@ class QuestionsSummary extends StatelessWidget {
                       Text(
                         data["user_answer"] as String,
                         style: const TextStyle(
-                          color: Color.fromARGB(255, 232, 153, 217),
+                          color: Color.fromARGB(255, 198, 131, 186),
                         ),
                       ),
                       Text(
@@ -46,6 +55,9 @@ class QuestionsSummary extends StatelessWidget {
                         style: const TextStyle(
                           color: Color.fromARGB(255, 65, 163, 233),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 5,
                       ),
                     ],
                   ),
