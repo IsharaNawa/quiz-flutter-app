@@ -40,9 +40,17 @@ class _QuizState extends State<Quiz> {
         // selectedAnswers = [];
         activeScreen = ResultsScreen(
           choosenAnswers: selectedAnswers,
+          restartQuiz: restartQuiz,
         );
       });
     }
+  }
+
+  void restartQuiz() {
+    setState(() {
+      selectedAnswers = [];
+      activeScreen = StartScreen(swtichScreen);
+    });
   }
 
   // this function should run when the user clicks on the button

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_summary.dart';
 
+// ignore: must_be_immutable
 class ResultsScreen extends StatelessWidget {
-  ResultsScreen({super.key, required this.choosenAnswers});
+  ResultsScreen(
+      {super.key, required this.choosenAnswers, required this.restartQuiz});
 
   final List<String> choosenAnswers;
+  final void Function() restartQuiz;
   int numberOfCorrectlyAnsweredQuestions = 0;
   int numberOfTotalQuestions = 0;
 
@@ -40,7 +44,13 @@ class ResultsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-                "You answered $numberOfCorrectlyAnsweredQuestions out of $numberOfTotalQuestions questions correctly!"),
+              "You answered $numberOfCorrectlyAnsweredQuestions out of $numberOfTotalQuestions questions correctly!",
+              textAlign: TextAlign.center,
+              style: GoogleFonts.lato(
+                color: Colors.white,
+                fontSize: 20,
+              ),
+            ),
             const SizedBox(
               height: 30,
             ),
@@ -48,12 +58,22 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Restart Quiz!",
-                  style: TextStyle(color: Colors.white),
-                ))
+            TextButton.icon(
+              onPressed: restartQuiz,
+              style: OutlinedButton.styleFrom(
+                foregroundColor: Colors.white,
+              ),
+              icon: const Icon(
+                Icons.refresh_outlined,
+              ),
+              label: const Text(
+                "Restart Quiz",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                ),
+              ),
+            )
           ],
         ),
       ),
