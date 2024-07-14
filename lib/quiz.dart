@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/questions_screen.dart';
+import 'package:quiz_app/results_screen.dart';
 
 import 'package:quiz_app/start_screen.dart';
 
@@ -37,7 +38,9 @@ class _QuizState extends State<Quiz> {
       // if so, set the active screen to start screen
       setState(() {
         selectedAnswers = [];
-        activeScreen = StartScreen(swtichScreen);
+        activeScreen = ResultsScreen(
+          choosenAnswers: selectedAnswers,
+        );
       });
     }
   }
