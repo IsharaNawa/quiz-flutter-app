@@ -37,7 +37,7 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswers.length == questions.length) {
       // if so, set the active screen to start screen
       setState(() {
-        selectedAnswers = [];
+        // selectedAnswers = [];
         activeScreen = ResultsScreen(
           choosenAnswers: selectedAnswers,
         );
